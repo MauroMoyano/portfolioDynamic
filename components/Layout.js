@@ -12,8 +12,6 @@ const sora = Sora({
 import Nav from '../components/Nav';
 import Header from '../components/Header';
 import TopLeftImg from '../components/TopLeftImg';
-import Home from "../pages";
-import Work from "../pages/work";
 
 const Layout = ({children}) => {
   return <div className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative`}>
