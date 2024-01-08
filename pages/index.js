@@ -33,12 +33,9 @@ const Home = () => {
             initial='hidden'
             animate='show'
             exit='hidden'
-            className='max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16'>Lorem ipsum audire vel mei amet sapientem nihil wisi eirmod lorem equidem veri ullamcorper eripuit impetus gloriatur no adipisci lacus dolor ad vivamus platea veniam oporteat
+            className='max-w-sm xl:max-w-xl mx-auto xl:mx-0 mb-10 xl:mb-16'>This is more than a motto for me; It is the essence of my passion and dedication. Always someone presents an idea to me, I look beyond the simple concept: I envision its digital potential and how it could come to life in the vast digital world. I am passionate about taking those seeds of creative thinking and cultivating them into innovative and functional digital solutions.
         </motion.p>
       {/*  btn  */}
-        <div className='flex justify-center xl:hidden relative'>
-          <ProjectsBtn />
-        </div>
         <motion.div
             variants={fadeIn('down', 0.4)}
             initial='hidden'
@@ -51,7 +48,7 @@ const Home = () => {
       </div>
     </div>
   {/*  image  */}
-    <div className='w-[1200px] h-full absolute right-0 bottom-20'>
+    <div className='w-full h-full absolute right-0 bottom-0'>
       {/*  bg img */}
       <div className='bg-none xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full absolute mix-blend-color-dodge translate-z-0'></div>
       {/*  particles  */}
@@ -63,7 +60,7 @@ const Home = () => {
           animate='show'
           exit='hidden'
           transition={{duration: 1, ease: 'easeInOut'}}
-          className='w-full h-full max-w-[737px] max-h-[678px] absolute -bottom-32
+          className='w-full h-full max-w-[737px] max-h-[780px] absolute bottom-0
       lg:bottom-0 lg:right-[8%]'
       >
         <Avatar />
