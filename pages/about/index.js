@@ -8,7 +8,6 @@ import {
   FaHtml5,
   FaJs,
   FaReact,
-  FaWordpress,
 } from "react-icons/fa";
 
 import {
