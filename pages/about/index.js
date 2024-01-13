@@ -14,8 +14,14 @@ import {
 import {
   SiAdobephotoshop,
   SiAdobexd,
-  SiFramer,
+  SiExpress,
+  SiDocker,
   SiNextdotjs,
+  SiPostgresql,
+  SiMongodb,
+  SiCypress,
+  SiPostman,
+
 } from "react-icons/si";
 
 // about data
@@ -31,12 +37,15 @@ export const aboutData = [
           <FaJs />,
           <FaReact />,
           <SiNextdotjs />,
-          <SiFramer />,
-          <FaWordpress />,
+          <SiExpress />,
+          <SiPostgresql />,
+          <SiMongodb />,
+          <SiCypress />,
+          <SiPostman />,
         ],
       },
       {
-        title: "UI/UX Design",
+        title: "Outsourced UI/UX Design",
         icons: [<FaFigma />, <SiAdobexd />, <SiAdobephotoshop />],
       },
     ],
@@ -45,12 +54,12 @@ export const aboutData = [
     title: "awards",
     info: [
       {
-        title: "Webby Awards - Honoree",
-        stage: "2011 - 2012",
+        title: "Henry of Year",
+        stage: "2023-2024",
       },
       {
-        title: "Adobe Design Achievement Awards - Finalist",
-        stage: "2009 - 2010",
+        title: "The best project in my cohort - Emprendar",
+        stage: "2022 - 2023",
       },
     ],
   },
@@ -58,16 +67,16 @@ export const aboutData = [
     title: "experience",
     info: [
       {
-        title: "UX/UI Designer - XYZ Company",
-        stage: "2012 - 2023",
+        title: "Full Stack Web Developer - Freelancer",
+        stage: "2023 - 2024",
       },
       {
-        title: "Web Developer - ABC Agency",
-        stage: "2010 - 2012",
+        title: "QA Analyst - Henry",
+        stage: "2023 - 2024",
       },
       {
-        title: "Intern - DEF Corporation",
-        stage: "2008 - 2010",
+        title: "Teaching Assistant for Python Data Analytics - Bedu",
+        stage: "2023 - 2024",
       },
     ],
   },
@@ -75,16 +84,16 @@ export const aboutData = [
     title: "credentials",
     info: [
       {
-        title: "Web Development - ABC University, LA, CA",
-        stage: "2011",
+        title: "Full Stack Web Developer - Henry",
+        stage: "2022",
       },
       {
-        title: "Computer Science Diploma - AV Technical Institute",
-        stage: "2009",
+        title: "Data Analytics Diploma - Henry",
+        stage: "2023",
       },
       {
-        title: "Certified Graphic Designer - ABC Institute, Los Angeles, CA",
-        stage: "2006",
+        title: "Certified in Microservices with Node.js and Docker - Henry",
+        stage: "2023",
       },
     ],
   },
@@ -138,9 +147,9 @@ const About = () => {
             exit="hidden"
             className="max-w-[500px] mx-auto xl:mx-0 mb-6 xl:mb-12 px-2 xl:px-0"
           >
-            10 years ago, I began freelancing as a developer. Since then , I`ve
-            done remote work for agencies, consulted for startups, and
-            collaborated on digital products for business and consumer use.
+            1 year ago, I began freelancing as a developer. Since then , I`ve
+            done remote work for Henry, consulted for software factories , and
+            collaborated on digital products for business and consumer use.            collaborated on digital products for business and consumer use.
           </motion.p>
           {/* counters */}
           <motion.div
@@ -154,7 +163,7 @@ const About = () => {
               {/* experience */}
               <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
                 <div className="text-2xl xl:text-4xl font-extrabold text-accent">
-                  <Counter start={0} end={10} duration={5} delay={1} />+
+                  <Counter start={0} end={1} duration={5} delay={1} />+
                 </div>
                 <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-[100px]">
                   Years of experience
@@ -163,7 +172,7 @@ const About = () => {
               {/* Clients */}
               <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
                 <div className="text-2xl xl:text-4xl font-extrabold text-accent">
-                  <Counter start={0} end={5} duration={5} delay={1} />+
+                  <Counter start={0} end={3} duration={5} delay={1} />+
                 </div>
                 <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-[100px]">
                   Satisfied clients
@@ -172,7 +181,7 @@ const About = () => {
               {/* Finished projects */}
               <div className="relative flex-1 after:w-[1px] after:h-full after:bg-white/10 after:absolute after:top-0 after:right-0">
                 <div className="text-2xl xl:text-4xl font-extrabold text-accent">
-                  <Counter start={0} end={15} duration={5} delay={1} />+
+                  <Counter start={0} end={6} duration={5} delay={1} />+
                 </div>
                 <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-[100px]">
                   Finished projects
@@ -181,7 +190,7 @@ const About = () => {
               {/* awards */}
               <div className="relative flex-1 ">
                 <div className="text-2xl xl:text-4xl font-extrabold text-accent">
-                  <Counter start={0} end={8} duration={5} delay={1} />+
+                  <Counter start={0} end={2} duration={5} delay={1} />
                 </div>
                 <div className="text-xs uppercase tracking-[1px] leading-[1.4] max-[100px]">
                   Winning awards
