@@ -15,40 +15,35 @@ import { fadeIn } from "../../variants";
 import { useState } from "react";
 
 const Contact = () => {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [merrors, setMerrors] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [form, setForm] = useState({});
+  const [merrors, setMerrors] = useState({});
 
   const changeHandler = (event) => {
     const property = event.target.name;
     const value = event.target.value;
 
+    console.log(property);
     setMerrors(validate({ ...form, [property]: value }));
+    form.name?.trim();
+    form.email?.trim();
+    form.subject?.trim();
+    form.message?.trim();
     setForm({ ...form, [property]: value });
   };
 
   const validate = (form) => {
-    var errors = {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    };
-
-    form.name?.trim();
-    form.email?.trim();
+    var errors = {};
 
     form.name === ""
-      ? (errors = { ...errors, name: "Debe introducir su nombre" })
+      ? (errors = { ...errors, name: "Required field" })
+      : (errors = { ...errors });
+
+    form.email === ""
+      ? (errors = { ...errors, email: "Required field" })
+      : (errors = { ...errors });
+
+    form.message === ""
+      ? (errors = { ...errors, message: "Required field" })
       : (errors = { ...errors });
 
     return errors;
@@ -81,28 +76,31 @@ const Contact = () => {
             className="flex-1 flex flex-col gap-6 w-full mx-auto"
           >
             {/* group */}
-            <div className="flex gap-x-6 w-full">
-              <div className="">
+            <div className="flex gap-x-6">
+              <div className="flex flex-col">
+                <div className="">
+                  <input
+                    type="text"
+                    placeholder="name"
+                    className="input"
+                    name="name"
+                    value={form.name}
+                    onChange={changeHandler}
+                  />
+                </div>
+                <label className="text-accent">{merrors?.name}</label>
+              </div>
+              <div className="flex flex-col w-full">
                 <input
                   type="text"
-                  placeholder="name"
-                  className="input mb-4"
-                  name="name"
-                  value={form.name}
+                  placeholder="email"
+                  className="input"
+                  name="email"
+                  value={form.email}
                   onChange={changeHandler}
                 />
-                <label className='text-accent'>
-                  {merrors?.name}
-                </label>
+                <label className="text-accent">{merrors?.email}</label>
               </div>
-              <input
-                type="text"
-                placeholder="email"
-                className="input"
-                name="email"
-                value={form.email}
-                onChange={changeHandler}
-              />
             </div>
             <input
               type="text"
@@ -119,6 +117,7 @@ const Contact = () => {
               value={form.message}
               onChange={changeHandler}
             ></textarea>
+            <label className="text-accent">{merrors?.message}</label>
             <button className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group">
               <span className="group-hover:-translate-y-[120px] group-hover:opacity-0 transition-all duration-1000">
                 Let's talk
