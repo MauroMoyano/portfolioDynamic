@@ -5,19 +5,21 @@ export const workSlides = {
       images: [
         {
           title: "title",
-          path: "/thumb1.jpg",
+          path: "/portfolio2.png",
         },
         {
           title: "title",
-          path: "/thumb2.jpg",
+          path: "/fc.png",
+          deploy: ""
         },
         {
           title: "title",
-          path: "/thumb3.jpg",
+          path: "/pi.jpg",
+          deploy: "https://pi-food-inky.vercel.app/"
         },
         {
           title: "title",
-          path: "/thumb4.jpg",
+          path: "/emprendar.jpg",
         },
       ],
     },
@@ -25,7 +27,8 @@ export const workSlides = {
       images: [
         {
           title: "title",
-          path: "/thumb4.jpg",
+          path: "/portfolio.png",
+          deploy: "https://portfolio-dev-mauromoyano.vercel.app/"
         },
         {
           title: "title",
@@ -80,9 +83,9 @@ const WorkSlider = () => {
                     key={index}
                     className="relative rounded-lg overflow-hidden flex items-center justify-center group"
                   >
-                    <div className="flex items-center justify-center relative overflow-hidden group">
+                    <div className="flex items-center justify-center relative overflow-hidden group w-[360px] h-[200px]">
                       {/* image */}
-                      <Image src={image.path} width={500} height={300} alt="" />
+                      <Image src={image.path} width={360} height={200} alt="" className="h-full"/>
                       {/* overlay gradient */}
                       <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#e838cc] to-[#4a22bd] opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
                       {/* title */}

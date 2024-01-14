@@ -31,10 +31,8 @@ const Work = () => {
               exit="hidden"
               className="mb-4 max-w-[400px] mx-auto lg:mx-0 "
             >
-              Fugiat nulla do id quis enim officia sint. Anim in reprehenderit
-              incididunt aliqua duis adipisicing ut do ex ea veniam est culpa
-              est. Nostrud nostrud laborum velit esse amet excepteur dolore
-              fugiat eu fugiat.
+              Explore a collection of my diverse projects showcasing creativity, innovation, 
+              and technical expertise. Each piece reflects a unique journey in web development and design.
             </motion.p>
           </div>
           {/* slider */}

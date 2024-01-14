@@ -11,7 +11,52 @@ import { motion } from "framer-motion";
 // variants
 import { fadeIn } from "../../variants";
 
+// react
+import { useState } from "react";
+
 const Contact = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [merrors, setMerrors] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const changeHandler = (event) => {
+    const property = event.target.name;
+    const value = event.target.value;
+
+    setMerrors(validate({ ...form, [property]: value }));
+    setForm({ ...form, [property]: value });
+  };
+
+  const validate = (form) => {
+    var errors = {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    };
+
+    form.name?.trim();
+    form.email?.trim();
+
+    form.name === ""
+      ? (errors = { ...errors, name: "Debe introducir su nombre" })
+      : (errors = { ...errors });
+
+    return errors;
+  };
+
+  console.log(merrors);
+  console.log(form);
+
   return (
     <div className="h-full bg-primary/30">
       <div className="container mx-auto py-32 text-center xl:text-left flex items-center justify-center h-full">
@@ -37,11 +82,43 @@ const Contact = () => {
           >
             {/* group */}
             <div className="flex gap-x-6 w-full">
-              <input type="text" placeholder="name" className="input" />
-              <input type="text" placeholder="email" className="input" />
+              <div className="">
+                <input
+                  type="text"
+                  placeholder="name"
+                  className="input mb-4"
+                  name="name"
+                  value={form.name}
+                  onChange={changeHandler}
+                />
+                <label className='text-accent'>
+                  {merrors?.name}
+                </label>
+              </div>
+              <input
+                type="text"
+                placeholder="email"
+                className="input"
+                name="email"
+                value={form.email}
+                onChange={changeHandler}
+              />
             </div>
-            <input type="text" placeholder="subject" className="input" />
-            <textarea placeholder="message" className="textarea"></textarea>
+            <input
+              type="text"
+              placeholder="subject"
+              className="input"
+              name="subject"
+              value={form.subject}
+              onChange={changeHandler}
+            />
+            <textarea
+              placeholder="message"
+              className="textarea"
+              name="message"
+              value={form.message}
+              onChange={changeHandler}
+            ></textarea>
             <button className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group">
               <span className="group-hover:-translate-y-[120px] group-hover:opacity-0 transition-all duration-1000">
                 Let's talk
