@@ -23,28 +23,28 @@ import { FreeMode, Pagination } from "swiper";
 export const serviceData = [
   {
     icon: <RxCrop />,
-    title: "Branding",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Web Design from Client's Idea",
+    description: "Collaboratively crafting unique web designs reflecting your brand identity.",
   },
   {
     icon: <RxPencil2 />,
-    title: "Design",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Front-end Web Development",
+    description: "Designing responsive UI/UX with HTML, CSS, and modern frameworks.",
   },
   {
     icon: <RxDesktop />,
-    title: "Development",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Back-end Web Development",
+    description: "Providing secure back-end solutions for functionality and performance.",
   },
   {
     icon: <RxReader />,
     title: "Copywriting",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "Crafting persuasive, engaging copy to captivate your audience and convey messages.",
   },
   {
     icon: <RxRocket />,
     title: "SEO",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "Implementing SEO strategies for improved website rankings and increased visibility.",
   },
 ];
 
@@ -71,7 +71,7 @@ const ServiceSlider = () => {
       {serviceData.map((item, index) => {
         return (
           <SwiperSlide key={index}>
-            <div className="bg-[rgba(65,47,123,0.15)] h-max rounded-lg px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[rgba(78,56,151,0.15)] transition-all duration-300">
+            <div className="bg-[rgba(65,47,123,0.15)] h-full rounded-lg px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[rgba(78,56,151,0.15)] transition-all duration-300">
               {/* icon */}
               <div className="text-4xl text-accent mb-4">{item.icon}</div>
               {/* title & desc */}
@@ -80,7 +80,7 @@ const ServiceSlider = () => {
                 <p className="max-w-[350px] leading-normal">{item.description}</p>
               </div>
               {/* arrow */}
-              <div className="text-3xl">
+              <div className="text-3xl fixed bottom-0 mb-8">
                 <RxArrowTopRight className="group-hover:rotate-45 group-hover:text-accent transition-all duration-300" />
               </div>
             </div>

@@ -31,10 +31,9 @@ const Services = () => {
               exit="hidden"
               className="mb-4 max-w-[400px] mx-auto lg:mx-0 "
             >
-              Fugiat nulla do id quis enim officia sint. Anim in reprehenderit
-              incididunt aliqua duis adipisicing ut do ex ea veniam est culpa
-              est. Nostrud nostrud laborum velit esse amet excepteur dolore
-              fugiat eu fugiat.
+              As an web developer, I specialize in delivering 
+              customized digital solutions that transform ideas into functional and visually appealing websites. 
+              My focus is on creating high-quality web experiences that align with your goals and exceed the expectations of your users.
             </motion.p>
           </div>
           {/* slider */}
