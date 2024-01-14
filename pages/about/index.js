@@ -37,6 +37,7 @@ export const aboutData = [
           <FaReact />,
           <SiNextdotjs />,
           <SiExpress />,
+          <SiDocker />,
           <SiPostgresql />,
           <SiMongodb />,
           <SiCypress />,
@@ -111,7 +112,6 @@ import Counter from "react-countup";
 
 const About = () => {
   const [index, setIndex] = useState(0);
-  console.log(index);
 
   return (
     <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
