@@ -12,10 +12,13 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../../variants";
 
 // react
-import { useState } from "react";
+import { useState, useRef } from "react";
+
+// mail sender
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  const [form, setForm] = useState({});
+  const [formState, setformState] = useState({});
   const [merrors, setMerrors] = useState({});
 
   const changeHandler = (event) => {
@@ -23,34 +26,58 @@ const Contact = () => {
     const value = event.target.value;
 
     console.log(property);
-    setMerrors(validate({ ...form, [property]: value }));
-    form.name?.trim();
-    form.email?.trim();
-    form.subject?.trim();
-    form.message?.trim();
-    setForm({ ...form, [property]: value });
+    setMerrors(validate({ ...formState, [property]: value }));
+    formState.name?.trim();
+    formState.email?.trim();
+    formState.subject?.trim();
+    formState.message?.trim();
+    setformState({ ...formState, [property]: value });
   };
 
-  const validate = (form) => {
+  const validate = (formState) => {
     var errors = {};
 
-    form.name === ""
-      ? (errors = { ...errors, name: "Required field" })
+    formState.user_name === ""
+      ? (errors = { ...errors, user_name: "Required field" })
       : (errors = { ...errors });
 
-    form.email === ""
-      ? (errors = { ...errors, email: "Required field" })
+    formState.user_email === ""
+      ? (errors = { ...errors, user_email: "Required field" })
       : (errors = { ...errors });
 
-    form.message === ""
-      ? (errors = { ...errors, message: "Required field" })
+    formState.user_message === ""
+      ? (errors = { ...errors, user_message: "Required field" })
       : (errors = { ...errors });
 
     return errors;
   };
 
   console.log(merrors);
-  console.log(form);
+  console.log(formState);
+
+  const form = useRef();
+
+  const sendEmail = (event) => {
+    event.preventDefault();
+    if (!!formState.user_name && !!formState.user_email && !!formState.user_message) {
+      console.log("entro", form);
+      emailjs
+        .sendForm(
+          "service_twqjsp4",
+          "template_ghipplg",
+          form.current,
+          "fnifyh6nVADRzx2Nn"
+        )
+        .then((result) => {
+          console.log(result.text);
+          window.alert("Message sent");
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error.text);
+          window.alert("Error sending email");
+        });
+    }
+  };
 
   return (
     <div className="h-full bg-primary/30">
@@ -67,12 +94,14 @@ const Contact = () => {
           >
             Let's <span className="text-accent">connect.</span>
           </motion.h2>
-          {/* form */}
+          {/* formState */}
           <motion.form
+            ref={form}
             variants={fadeIn("up", 0.4)}
             initial="hidden"
             animate="show"
             exit="hidden"
+            onSubmit={sendEmail}
             className="flex-1 flex flex-col gap-6 w-full mx-auto"
           >
             {/* group */}
@@ -83,41 +112,41 @@ const Contact = () => {
                     type="text"
                     placeholder="name"
                     className="input"
-                    name="name"
-                    value={form.name}
+                    name="user_name"
+                    value={formState.user_name}
                     onChange={changeHandler}
                   />
                 </div>
-                <label className="text-accent">{merrors?.name}</label>
+                <label className="text-accent">{merrors?.user_name}</label>
               </div>
               <div className="flex flex-col w-full">
                 <input
                   type="text"
                   placeholder="email"
                   className="input"
-                  name="email"
-                  value={form.email}
+                  name="user_email"
+                  value={formState.user_email}
                   onChange={changeHandler}
                 />
-                <label className="text-accent">{merrors?.email}</label>
+                <label className="text-accent">{merrors?.user_email}</label>
               </div>
             </div>
             <input
               type="text"
               placeholder="subject"
               className="input"
-              name="subject"
-              value={form.subject}
+              name="user_subject"
+              value={formState.user_subject}
               onChange={changeHandler}
             />
             <textarea
               placeholder="message"
               className="textarea"
-              name="message"
-              value={form.message}
+              name="user_message"
+              value={formState.user_message}
               onChange={changeHandler}
             ></textarea>
-            <label className="text-accent">{merrors?.message}</label>
+            <label className="text-accent">{merrors?.user_message}</label>
             <button className="btn rounded-full border border-white/50 max-w-[170px] px-8 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group">
               <span className="group-hover:-translate-y-[120px] group-hover:opacity-0 transition-all duration-1000">
                 Let's talk
