@@ -12,8 +12,7 @@ import {AnimatePresence, motion} from 'framer-motion';
 
 function MyApp({Component, pageProps}) {
     const router = useRouter();
-    console.log("routerrrrr",router.route)
-    console.log(JSON.stringify(Component))
+    
     return (
         <Layout>
             <AnimatePresence mode='wait'>

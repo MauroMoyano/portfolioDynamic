@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 // components
-import { Cicles } from "../../components/Circles";
 
 // icons
 import { BsArrowRight } from "react-icons/bs";
@@ -25,17 +24,17 @@ const Contact = () => {
     const property = event.target.name;
     const value = event.target.value;
 
-    console.log(property);
     setMerrors(validate({ ...formState, [property]: value }));
-    formState.name?.trim();
-    formState.email?.trim();
-    formState.subject?.trim();
-    formState.message?.trim();
     setformState({ ...formState, [property]: value });
   };
 
   const validate = (formState) => {
     var errors = {};
+
+    formState.name?.trim();
+    formState.email?.trim();
+    formState.subject?.trim();
+    formState.message?.trim();
 
     formState.user_name === ""
       ? (errors = { ...errors, user_name: "Required field" })
@@ -52,15 +51,11 @@ const Contact = () => {
     return errors;
   };
 
-  console.log(merrors);
-  console.log(formState);
-
   const form = useRef();
 
   const sendEmail = (event) => {
     event.preventDefault();
     if (!!formState.user_name && !!formState.user_email && !!formState.user_message) {
-      console.log("entro", form);
       emailjs
         .sendForm(
           "service_twqjsp4",
