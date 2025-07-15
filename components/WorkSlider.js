@@ -6,6 +6,7 @@ export const workSlides = {
         {
           title: "title",
           path: "/portfolio2.png",
+		  deploy: "https://portfolio-dynamic.vercel.app/"
         },
         {
           title: "title",
@@ -14,12 +15,13 @@ export const workSlides = {
         },
         {
           title: "title",
-          path: "/pi.jpg",
-          deploy: "https://pi-food-inky.vercel.app/"
+          path: "/eolam.jpg",
+          deploy: "https://eolam.vercel.app/"
         },
         {
           title: "title",
-          path: "/emprendar.jpg",
+          path: "/LangChain.png",
+		  deploy: "https://langchain-ai-app.vercel.app/"
         },
       ],
     },
@@ -41,6 +43,7 @@ export const workSlides = {
         {
           title: "title",
           path: "/thumb3.jpg",
+		  deploy: "https://langchain-ai-app.vercel.app/"
         },
       ],
     },
@@ -82,6 +85,7 @@ const WorkSlider = () => {
                   <div
                     key={index}
                     className="relative rounded-lg overflow-hidden flex items-center justify-center group"
+					onClick={() => window.open(image.deploy, "_blank")}
                   >
                     <div className="flex items-center justify-center relative overflow-hidden group w-[360px] h-[200px]">
                       {/* image */}
